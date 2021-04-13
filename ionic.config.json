@@ -1,0 +1,7 @@
+{
+  "name": "UTSambw",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
