@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Notes
     </ion-title>
+    <!-- <ion-button slot = "end" routerLink = "/tab3">Detail</ion-button> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ion-list>
+    <ion-item *ngFor="let data of isiData | async, let i = index">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{data.judul}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p>{{data.isi}}</p>
+          <ion-img [src]= isiFoto.webviewPath></ion-img>
+        </ion-card-content>
+        <ion-button (click)="Det(i)">Detail</ion-button>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col size = "6" *ngFor="let isiFoto of fotoService.dataFoto; let i = index"> 
+      <ion-img [src]= isiFoto.webviewPath></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
 </ion-content>
